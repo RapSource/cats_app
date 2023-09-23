@@ -38,7 +38,8 @@ class _DetailWebPageState extends State<DetailWebPage> {
       appBar: AppBar(
         leading:
             const Image(image: AssetImage('assets/images/logo_kucing.png')),
-        title: const Text('Halaman Detail'),
+        title:
+            Text('Halaman Detail', style: GoogleFonts.breeSerif(fontSize: 24)),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -57,8 +58,16 @@ class _DetailWebPageState extends State<DetailWebPage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 64),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                Color.fromARGB(10, 1, 238, 187),
+                Colors.blueAccent
+              ])),
           child: SizedBox(
             width: 1200,
             child: Row(
@@ -67,13 +76,36 @@ class _DetailWebPageState extends State<DetailWebPage> {
                 Expanded(
                   child: Column(
                     children: [
-                      ClipRRect(
-                        child: Image.asset(
-                          widget.ras.imageAsset,
-                          fit: BoxFit.cover,
+                      Stack(children: [
+                        ClipRRect(
+                          child: Image.asset(
+                            widget.ras.imageAsset,
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                        SafeArea(
+                            child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.grey,
+                                child: IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              const LoveIcon(size: 30),
+                            ],
+                          ),
+                        ))
+                      ]),
                       const SizedBox(
                         height: 16,
                       ),
@@ -115,7 +147,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                             widget.ras.rasName,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Color.fromARGB(141, 7, 119, 139),
+                              color: Colors.blueGrey,
                               fontWeight: FontWeight.bold,
                               fontSize: 30.0,
                             ),
@@ -178,80 +210,92 @@ class DetailMobilePage extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Stack(children: [
-                Hero(
-                  tag: ras.imageAsset,
-                  child: Image.asset(
-                    ras.imageAsset,
-                    fit: BoxFit.cover,
+          child: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                  Color.fromARGB(10, 1, 238, 187),
+                  Colors.blueAccent
+                ])),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Stack(children: [
+                  Hero(
+                    tag: ras.imageAsset,
+                    child: Image.asset(
+                      ras.imageAsset,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                SafeArea(
-                    child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                            )),
-                      ),
-                      const LoveIcon(),
-                    ],
-                  ),
-                ))
-              ]),
-              Container(
-                  margin: const EdgeInsets.only(top: 16.0),
+                  SafeArea(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                              )),
+                        ),
+                        const LoveIcon(size: 30),
+                      ],
+                    ),
+                  ))
+                ]),
+                Container(
+                    margin: const EdgeInsets.only(top: 16.0),
+                    child: Text(
+                      ras.rasName,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),
+                    )),
+                Container(
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    ras.rasName,
+                    ras.description,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Color.fromARGB(141, 7, 119, 139),
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  ras.description,
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(fontSize: 16.0),
+                    style: GoogleFonts.poppins(fontSize: 16.0),
+                  ),
                 ),
-              ),
-              Container(
-                height: 150,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: ras.imageUrls.map((url) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(url),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              )
-            ],
+                Container(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: ras.imageUrls.map((url) {
+                      return Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(url),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
 }
 
 class LoveIcon extends StatefulWidget {
-  const LoveIcon({super.key});
+  final double? size;
+
+  const LoveIcon({super.key, required this.size});
 
   @override
   State<LoveIcon> createState() => _LoveIconState();
@@ -271,6 +315,7 @@ class _LoveIconState extends State<LoveIcon> {
         icon: Icon(
           isLove ? Icons.favorite : Icons.favorite_border,
           color: Colors.red,
+          size: widget.size,
         ));
   }
 }

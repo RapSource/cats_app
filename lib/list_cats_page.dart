@@ -13,13 +13,14 @@ class MainPage extends StatelessWidget {
         appBar: AppBar(
           leading:
               const Image(image: AssetImage('assets/images/logo_kucing.png')),
-          title: Text('Ras Kucing', style: GoogleFonts.poppins()),
+          title: Text('Ras Kucing',
+              style: GoogleFonts.breeSerif(fontSize: 24, height: 1.5)),
           actions: <Widget>[
             IconButton(
                 onPressed: () {
                   exit(0);
                 },
-                icon: Icon(Icons.exit_to_app)),
+                icon: const Icon(Icons.exit_to_app)),
           ],
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -38,16 +39,27 @@ class MainPage extends StatelessWidget {
                     repeat: ImageRepeat.repeat)),
           ),
         ),
-        body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            if (constraints.maxWidth <= 600) {
-              return const CatList();
-            } else if (constraints.maxWidth <= 1200) {
-              return const CatGrid(gridCount: 4);
-            } else {
-              return const CatGrid(gridCount: 6);
-            }
-          },
+        body: Container(
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                Colors.blueAccent,
+                Color.fromARGB(10, 1, 238, 187)
+              ])),
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              if (constraints.maxWidth <= 600) {
+                return const CatList();
+              } else if (constraints.maxWidth <= 1200) {
+                return const CatGrid(gridCount: 4);
+              } else {
+                return const CatGrid(gridCount: 6);
+              }
+            },
+          ),
         ));
   }
 }
@@ -65,32 +77,41 @@ class CatList extends StatelessWidget {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => DetailPage(ras: ras)));
           },
-          child: Card(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                    flex: 1,
-                    child: Hero(
-                        tag: ras.imageAsset,
-                        child: Image.asset(
-                          ras.imageAsset,
-                          width: 100,
-                        ))),
-                Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            ras.rasName,
-                            style: TextStyle(fontSize: 16.0),
-                          )
-                        ],
-                      ),
-                    ))
+          child: Container(
+            margin: const EdgeInsets.all(16),
+            width: MediaQuery.of(context).size.width,
+            height: 250,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.grey, offset: Offset(2, 1), blurRadius: 3)
+                ]),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  child: Hero(
+                    tag: ras.imageAsset,
+                    child: Image.asset(
+                      ras.imageAsset,
+                      width: MediaQuery.of(context).size.width,
+                      height: 200,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(7),
+                  child: Text(ras.rasName,
+                      style: const TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey)),
+                ),
               ],
             ),
           ),
@@ -122,22 +143,39 @@ class CatGrid extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => DetailPage(ras: ras)));
               },
-              child: Card(
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(2, 1),
+                          blurRadius: 3)
+                    ]),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Expanded(
-                        child: Image.asset(
-                      ras.imageAsset,
-                      fit: BoxFit.cover,
+                        child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10)),
+                      child: Image.asset(
+                        ras.imageAsset,
+                        height: 20,
+                        fit: BoxFit.cover,
+                      ),
                     )),
                     const SizedBox(height: 8),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        ras.rasName,
-                        style: const TextStyle(fontSize: 16.0),
-                      ),
+                      child: Text(ras.rasName,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blueGrey)),
                     )
                   ],
                 ),

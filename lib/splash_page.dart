@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-
-import 'bottom_bar.dart';
+import 'list_cats_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -11,63 +11,60 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
     Future.delayed(Duration(seconds: 4), () async {
-      await Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return BottomBar();
-        })
-      );
+      await Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) {
+        return const MainPage();
+      }));
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image(image: AssetImage('assets/images/logo_kucing.png')),
-        title: Text('Cats App'),
+        leading:
+            const Image(image: AssetImage('assets/images/logo_kucing.png')),
+        title: Text('Cats App',
+            style: GoogleFonts.breeSerif(fontSize: 24, height: 1.5)),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color.fromARGB(255, 0, 4, 255), Color.fromARGB(255, 16, 242, 223)],
-              begin: FractionalOffset.topLeft,
-              end: FractionalOffset.bottomRight,
-            ),
-            image: DecorationImage(
-              image: AssetImage('assets/images/patern.jpg'),
-              opacity: 0.5,
-              fit: BoxFit.none,
-              repeat: ImageRepeat.repeat
-            )
-          ),
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 0, 4, 255),
+                  Color.fromARGB(255, 16, 242, 223)
+                ],
+                begin: FractionalOffset.topLeft,
+                end: FractionalOffset.bottomRight,
+              ),
+              image: DecorationImage(
+                  image: AssetImage('assets/images/patern.jpg'),
+                  opacity: 0.5,
+                  fit: BoxFit.none,
+                  repeat: ImageRepeat.repeat)),
         ),
       ),
       body: Container(
-        // height: 500,
-        // width: 500,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
               Colors.blueAccent,
               Color.fromARGB(10, 1, 238, 187)
-            ]
-          )
-        ),
+            ])),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                width: 200,
-                height: 100,
-                child: LottieBuilder.network('https://assets10.lottiefiles.com/packages/lf20_OT15QW.json')
-              ),
+                  width: 200,
+                  height: 100,
+                  child: LottieBuilder.network(
+                      'https://assets10.lottiefiles.com/packages/lf20_OT15QW.json')),
               // Material(
               //   elevation: 2,
               //   borderRadius: BorderRadius.circular(20),
@@ -94,7 +91,7 @@ class _SplashPageState extends State<SplashPage> {
               //             MaterialPageRoute(builder: (context) {
               //               return MainPage();
               //             })
-              //           ); 
+              //           );
               //         },
               //         child: Center(
               //           child: Text('Halaman Artikel', style: GoogleFonts.poppins()),
@@ -123,7 +120,6 @@ class _SplashPageState extends State<SplashPage> {
         ),
       ),
     );
-
   }
 }
 

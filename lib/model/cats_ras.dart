@@ -91,7 +91,7 @@ var catsRas = [
       imageAsset: 'assets/images/snowshoe.jpg',
       imageUrls: [
         'https://ik.imagekit.io/kucingmania/wp-content/uploads/2020/09/Jenis-Kucing-Snowshoe-1.jpg',
-        'https://infobinatang.com/wp-content/uploads/2019/08/gambar-Kucing-Snowshoe.jpg',
+        'https://www.catlovers.id/wp-content/uploads/2017/06/Yuk-Kenalan-dengan-Si-Unik-Ras-Snowshoe.jpg',
         'https://cattery.co.id/wp-content/uploads/2020/12/Snowshoe-cat.jpg'
       ]),
   CatsRas(
@@ -104,7 +104,7 @@ var catsRas = [
           'Di cuaca panas atau embap, kucing Siberian akan menggugurkan bulunya agar tidak kepanasan. Di cuaca yang cenderung dingin ia akan menebalkan bulunya sehingga butuh disisir dan dimandikan lebih sering.',
       imageAsset: 'assets/images/siberian.jpeg',
       imageUrls: [
-        'https://kucingmeoong.com/wp-content/uploads/2022/02/Fakta-Kucing-Siberian.jpg',
+        'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/27075605/14.-Tidak-Sama-Ini-Bedanya-Kucing-Siberia-dengan-Maine-Coon.jpg',
         'https://cdn.idntimes.com/content-images/community/2020/01/siberian3-0921d14e3604db8595e381d2b9c7e42f.jpg',
         'https://assets.pikiran-rakyat.com/crop/0x0:0x0/750x500/photo/2022/03/18/550639812.jpeg'
       ]),
@@ -120,7 +120,7 @@ var catsRas = [
       imageUrls: [
         'https://asset.kompas.com/crops/OYdYxwOVU9jZ6w-be9jWWekTyC0=/496x331:4464x2976/750x500/data/photo/2021/01/05/5ff3d45847456.jpg',
         'https://pinhome-blog-assets-public.s3.amazonaws.com/2021/12/Scottish-Fold-Shorthair-1024x1024.jpg',
-        'https://infobinatang.com/wp-content/uploads/2019/08/cropped-wallpaper-Kucing-Scottish-Fold.jpg'
+        'https://www.kucingklik.com/wp-content/uploads/2020/01/Jenis-Kucing-Scottish-Fold.jpg'
       ]),
   CatsRas(
       rasName: 'Balinese',
@@ -138,12 +138,12 @@ var catsRas = [
       ]),
   CatsRas(
       rasName: 'Bengal',
-      description: 
-      'Kucing Bengal melalui penampilannya benar-benar mengingatkan kita tentang bagaimana macan tutul berpenampilan. Trah ini memiliki ukuran yang lebih besar dibandingkan dengan trah lainnya, seperti dijelaskan di atas bahwa, ukuran laki-laki kucing ini bisa mencapai 10kg sangat besar dibandingkan dengan kucing lain.\n'
-      '\n'
-      'Kucing bengal memiliki kepala yang bentuknya segitiga, di bagian bawah kepalanya atau leher terdapat lapisan daging yang cukup tebal, lalu di lanjutkan kaki dan ekor yang juga sangat tebal dan berisi. Pola dari ras ini biasanya dipengaruhi oleh gen tabby yang telah mengalami hibridisasi asli.\n'
-      '\n'
-      'Mantel bulu dari ras ini sangatlah pendek, memiliki permukaan yang kasar sehingga sedikit kurang enak ketika di pegang, namun bulu trah ini mudah sekali untuk dirawat dan jika dilihat tidaklah kusam, satu-satunya kesalahan adalah permukaannya yang kasar.',
+      description:
+          'Kucing Bengal melalui penampilannya benar-benar mengingatkan kita tentang bagaimana macan tutul berpenampilan. Trah ini memiliki ukuran yang lebih besar dibandingkan dengan trah lainnya, seperti dijelaskan di atas bahwa, ukuran laki-laki kucing ini bisa mencapai 10kg sangat besar dibandingkan dengan kucing lain.\n'
+          '\n'
+          'Kucing bengal memiliki kepala yang bentuknya segitiga, di bagian bawah kepalanya atau leher terdapat lapisan daging yang cukup tebal, lalu di lanjutkan kaki dan ekor yang juga sangat tebal dan berisi. Pola dari ras ini biasanya dipengaruhi oleh gen tabby yang telah mengalami hibridisasi asli.\n'
+          '\n'
+          'Mantel bulu dari ras ini sangatlah pendek, memiliki permukaan yang kasar sehingga sedikit kurang enak ketika di pegang, namun bulu trah ini mudah sekali untuk dirawat dan jika dilihat tidaklah kusam, satu-satunya kesalahan adalah permukaannya yang kasar.',
       imageAsset: 'assets/images/bengal.jpg',
       imageUrls: [
         'https://i2.wp.com/3.bp.blogspot.com/-C87hpGJsTug/UQ8ktefTYaI/AAAAAAAAAps/2e3JQJldahc/s1600/feb+11+178.jpg',
